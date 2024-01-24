@@ -6,6 +6,7 @@ let flipPercentageForPoint = 99;
 let flipPercentageForZero = 1;
 let turnsLeft = 20;
 let pointTotal = 0;
+let pointsFlipped = 0;
 
 const flipOdds = percentage => Math.random() * 100 < percentage;
 const pointsToGive = () => Math.floor(Math.random() * (maximumPointsGiven - mininumPointsGiven + 1)) + mininumPointsGiven;
@@ -21,13 +22,14 @@ function onButtonClick() {
     }
 
     if (flipPercentageForZero + flipPercentageChange > 100) {
-        flipPercentageForZero += 100;
+        flipPercentageForZero = 100;
     } else {
         flipPercentageForZero += flipPercentageChange;
     }
 
     if (isPoint) {
-        pointTotal += pointsToGive();
+        pointsFlipped = pointsToGive();
+        pointTotal += pointsFlipped;
         
         if (pointTotal === goalPoints) {
             // do win
