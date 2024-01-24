@@ -12,29 +12,28 @@ const pointsToGive = () => Math.floor(Math.random() * (maximumPointsGiven - mini
 
 function onButtonClick() {
     const isPoint = flipOdds(flipPercentageForPoint);
-    turnsLeft -= 1
+    turnsLeft -= 1;
 
     if (flipPercentageForPoint - flipPercentageChange < 0) {
-        flipPercentageForPoint = 0
+        flipPercentageForPoint = 0;
     } else {
         flipPercentageForPoint -= flipPercentageChange;
-    };
+    }
 
     if (flipPercentageForZero + flipPercentageChange > 100) {
-        flipPercentageForZero += 100
+        flipPercentageForZero += 100;
     } else {
-        flipPercentageForZero += flipPercentageChange
-
+        flipPercentageForZero += flipPercentageChange;
     }
 
     if (isPoint) {
         pointTotal += pointsToGive();
         
         if (pointTotal === goalPoints) {
-            //do win
+            // do win
         }
     } else {
         pointTotal = 0;
         // do lose
     }
-};
+}
